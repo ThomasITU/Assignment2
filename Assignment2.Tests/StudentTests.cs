@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using Assignment2;
 
 namespace Assignment2.Tests
 {
