@@ -67,7 +67,7 @@ namespace Assignment2.Tests
             //Act
             
             //Assert
-            Assert.Equal("30/6/2023",IstudentT.GraduationDate.ToString("dd/MM/yyyy"));
+            Assert.Equal("30/06/2023",IstudentT.GraduationDate.ToString("dd/MM/yyyy"));
         }
         [Fact]
         public void Accessing_ImmutabelStudents_id_is_123456()
