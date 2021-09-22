@@ -19,7 +19,7 @@ namespace Assignment2.Tests
             
             
             //Assert
-            Assert.Equal("id: 12345, name: My Jensen, status: Active, start date: 30-08-2020, end date: 17-06-2023, graduation date: 30-06-2023", student.ToString());
+            Assert.Equal("id: 12345, name: My Jensen, status: Active, start date: 30/08/2020, end date: 17/06/2023, graduation date: 30/06/2023", student.ToString());
         }
     }
 }
