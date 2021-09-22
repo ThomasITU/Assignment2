@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 
 namespace Assignment2
 {
@@ -9,23 +11,44 @@ namespace Assignment2
         public int Id{get;init;}
         public string GivenName{get; set;}
         public string SurName{get; set;}
-        public Status Status{
-            get => _status;
-            set => evalStatus()
-        ;}
-
         public DateTime StartDate{get; set;}
         public DateTime EndDate{get; set;}
         public DateTime GraduationDate{get; set;}
-
-
-        public string toString(){
-            return $"id: {Id}, name: {GivenName} {SurName}, status: {Status}, start date: {StartDate}, end date: {EndDate}, graduation date: {GraduationDate}";
-           
+        
+        public Status Status
+        {
+            get => _status;
+            private set => _status = EvalStatus(); // Doesn't work :-(
         }
 
-        private Status evalStatus(){
-            throw new NotImplementedException();
+
+        public string ToString()
+        {
+            _status = EvalStatus(); 
+            return $"id: {Id}, name: {GivenName} {SurName}, status: {_status}, start date: {StartDate.ToString("dd/MM/yyyy")}, end date: {EndDate.ToString("dd/MM/yyyy")}, graduation date: {GraduationDate.ToString("dd/MM/yyyy")}";
+        }
+
+        private Status EvalStatus() 
+        {
+            var now = DateTime.Now;
+            
+            if (now.Date == StartDate.Date)
+            {
+                return Status.New;
+            }
+            else if (GraduationDate.Date <= now.Date)
+            {
+                return Status.Graduated;
+            }
+            else if (EndDate.Date < now.Date && GraduationDate.Date > now.Date)
+            {
+                return Status.Dropout;
+            }
+            else
+            {
+                return Status.Active;
+            }
+
         }
     }
 
