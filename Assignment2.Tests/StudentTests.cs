@@ -13,7 +13,7 @@ namespace Assignment2.Tests
             DateTime startDate = new DateTime(2020, 8, 30);
             DateTime endDate = new DateTime(2023, 6, 17);
             DateTime graduationDate = new DateTime(2023, 6, 30);
-            var student = new Student(12345, "My", "Jensen", "Active", startDate, endDate, graduationDate);
+            var student = new Student{Id = 12345, GivenName= "My", SurName = "Jensen", StartDate = startDate, EndDate = endDate, GraduationDate = graduationDate};
             
             //Act
             

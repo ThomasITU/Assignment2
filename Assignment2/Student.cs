@@ -6,7 +6,7 @@ namespace Assignment2
     {
         private Status _status;
 
-        public int Id{get;private set;}
+        public int Id{get;init;}
         public string GivenName{get; set;}
         public string SurName{get; set;}
         public Status Status{
